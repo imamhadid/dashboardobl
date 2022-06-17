@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'modules/color';
+@import 'modules/reset';
+@import 'modules/mixin';
+
+.area {
+    @include flex-box();
+    height: 100vh;
+
+    .container {
+        @include flex-box();
+        box-shadow: 1px 3px 40px 0px rgba(0, 0, 0, 0.2);
+        width: 60%;
+        border-radius: 24px;
+        padding: 50px;
+        flex-direction: column;
+        background-color: white;
+
+        h2 {
+            margin-bottom: 30px;
+            font-size: 32px;
+        }
+
+        form {
+            width: 100%;
+
+            .form-input {
+                margin-bottom: 24px;
+
+                label {
+                    display: flex;
+                    margin-bottom: 8px;
+                    font-size: 16px;
+                }
+
+                i#togglePassword {
+                    margin-left: 49%;
+                    margin-top: -30px;
+                    cursor: pointer;
+                    font-size: 20px;
+                    position: absolute;
+                    color: #858585;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 0;
+                    height: 42px;
+                    text-indent: 20px;
+                    background-color: #e9ecef;
+                }
+
+                input:focus {
+                    outline-width: 2px;
+                    outline-style: solid;
+                    outline-color: #0d6efd;
+                }
+
+                select {
+                    background-color: #e9ecef;
+                }
+            }
+
+            .form-button {
+                @include flex-box();
+
+                button {
+                    all: unset;
+                    border-radius: 24px;
+                    background-color: #0d6efd;
+                    color: white;
+                    width: 100%;
+                    padding: 14px 0;
+                    text-align: center;
+                    font-weight: 700;
+                    transition: all 0.1s;
+                    margin: 10px 0;
+                    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+                    width: 100%;
+                }
+
+                button:hover {
+                    filter: brightness(125%);
+                }
+
+                a {
+                    font-size: 14px;
+                }
+
+                a.home {
+                    margin-top: 20px;
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

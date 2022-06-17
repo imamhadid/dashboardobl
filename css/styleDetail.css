@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body,
+html {
+  background-color: #f6f6ff;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+select {
+  background-color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 10px;
+  outline: none;
+  cursor: pointer;
+  width: auto;
+}
+
+input[type='date'] {
+  cursor: pointer;
+}
+
+button {
+  all: unset;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 16px 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
+input {
+  all: unset;
+  background-color: white;
+  border-radius: 30px;
+  font-size: 14px;
+  padding: 10px 14px;
+  height: 26px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: #0d6efd;
+}
+
+::-webkit-input-placeholder {
+  color: #6c757d;
+}
+
+:-ms-input-placeholder {
+  color: #6c757d;
+}
+
+::-ms-input-placeholder {
+  color: #6c757d;
+}
+
+::placeholder {
+  color: #6c757d;
+}
+
+.container {
+  margin: 70px;
+}
+
+.container .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+}
+
+.container .header input {
+  width: 40%;
+  padding-left: 70px;
+}
+
+.container .header img#search {
+  margin-left: 20px;
+  width: 30px;
+  position: absolute;
+}
+
+.container .header ._1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .header ._1 button {
+  margin-left: 20px;
+}
+
+.container .header ._1 img {
+  width: 20px;
+  margin-right: 6px;
+}
+
+.container .content {
+  margin-top: 30px;
+  overflow: auto;
+  -webkit-box-shadow: 1px 3px 10px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 3px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  background-color: white;
+  width: 100%;
+}
+
+.container .content table {
+  border-collapse: collapse;
+  text-align: center;
+  width: 250%;
+}
+
+.container .content table th {
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  height: 60px;
+  padding: 6px 12px;
+}
+
+.container .content table td {
+  font-size: 16px;
+  padding: 12px 24px;
+  color: black;
+}
+
+.container .content table td button {
+  all: unset;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 4px;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  font-weight: 700;
+}
+
+.container .content table td form select,
+.container .content table td form input[type='date'] {
+  background-color: #e9ecef;
+  color: black;
+}
+
+.container .content table td.aksi {
+  padding: 12px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .content table td.aksi button.update,
+.container .content table td.aksi button.delete {
+  background-color: #fd7e14;
+  padding: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 8px;
+}
+
+.container .content table td.aksi button.update img,
+.container .content table td.aksi button.delete img {
+  width: 26px;
+}
+
+.container .content table td.aksi button.view {
+  background-color: #adb5bd;
+  padding: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 8px;
+}
+
+.container .content table td.aksi button.view img {
+  width: 26px;
+}
+
+.container .content table td.aksi button:hover {
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.container .content table td.aksi button.delete {
+  background-color: #dc3545;
+}
+
+.container .content table td.no {
+  padding: 12px 14px;
+}
+
+.container .content table tr:nth-child(odd) {
+  background-color: #f3f3f3;
+}
+
+.container .content table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+/*# sourceMappingURL=styleDetail.css.map */
