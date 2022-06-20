@@ -18,7 +18,7 @@ if (isset($_GET["witel"])) {
 }
 
 if ($witel == '') {
-    $query = query("SELECT * FROM report_obl WHERE UPPER(proses) = 'WITEL' ORDER BY nilai_kb DESC");
+    $query = query("SELECT * FROM report_obl ORDER BY nilai_kb DESC");
 } else {
     $query = query("SELECT * FROM report_obl WHERE UPPER(proses) = 'WITEL' AND UPPER(witel) = '$witel' ORDER BY nilai_kb DESC");
 }
