@@ -18,10 +18,40 @@ if (isset($_GET["witel"])) {
 }
 
 if ($witel == '') {
-    $query = query("SELECT * FROM report_obl ORDER BY nilai_kb DESC");
+    $query = query("SELECT * FROM report_obl GROUP BY nama_pelanggan ORDER BY nilai_kb DESC");
+
+    foreach ($query as $key => $dataQuery) {
+        $namaPenggan = $dataQuery['nama_pelanggan'];
+        $queryNilai = query("SELECT nama_pelanggan, nilai_kb FROM report_obl WHERE nama_pelanggan='$namaPenggan'");
+        unset($totalNilai);
+        foreach ($queryNilai as $key => $todo) {
+            $totalNilai[] = $todo['nilai_kb'];
+            // rupiah($row["nilai_kb"]);
+        }
+        try {
+            $nilaiData = array_sum($totalNilai);
+        } catch (\Throwable $th) {
+        }
+        $queryCollection[] = [
+            'id' => $dataQuery['id'],
+            'proses' => $dataQuery['proses'],
+            'nama_pelanggan' => $dataQuery['nama_pelanggan'],
+            'total_order' => $dataQuery['total_order'],
+            'nilai_kb' => $nilaiData,
+        ];
+    }
+    usort($queryCollection, function($a, $b)
+             {
+                 if ($a["nilai_kb"] == $b["nilai_kb"])
+                     return (0);
+                 return (($a["nilai_kb"] > $b["nilai_kb"]) ? -1 : 1);
+             });
 } else {
     $query = query("SELECT * FROM report_obl WHERE UPPER(proses) = 'WITEL' AND UPPER(witel) = '$witel' ORDER BY nilai_kb DESC");
 }
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -58,14 +88,14 @@ if ($witel == '') {
                     <th class="aksi">Aksi</th>
                 </tr>
                 <?php $i = 1; ?>
-                <?php foreach ($query as $row) : ?>
+                <?php foreach ($queryCollection as $key => $row) { ?>
                     <tr>
                         <td class="no"><?= $i; ?></td>
-                        <td><?= $row["nama_pelanggan"]; ?></td>
-                        <td><?= $row["total_order"]; ?></td>
-                        <td><?= rupiah($row["nilai_kb"]); ?></td>
+                        <td><?= $row['nama_pelanggan']; ?></td>
+                        <td><?= $row['total_order']; ?></td>
+                        <td><?= $row['nilai_kb']; ?></td>
                         <td class="aksi">
-                        <a href="lihatDetailRank.php"><button class="view"><img src="img/view.png" alt=""></button></a>
+                            <a href="lihatDetailRank.php"><button class="view"><img src="img/view.png" alt=""></button></a>
                         </td>
                         <?php
                         if ($level == 'witel') {
@@ -77,7 +107,7 @@ if ($witel == '') {
                         ?>
                         <?php $i++; ?>
                     </tr>
-                <?php endforeach; ?>
+                <?php } ?>
             </table>
         </div>
     </div>
